@@ -9,11 +9,12 @@ DetDisk::DetDisk()
     _vec_max.SetXYZ(0, 0, 0);
 }
 
-DetDisk::DetDisk(double z, double r_min, double r_max)
+DetDisk::DetDisk(double z, double r_min, double r_max, bool isVfpix)
 {
     _vec_min.SetXYZ(r_max, 0, z); // the larger r gives the lower eta value
     _vec_max.SetXYZ(r_min, 0, z);
     calcEtaBoundaries();
+    _isVfpix = isVfpix;
 }
 
 void DetDisk::calcEtaBoundaries()
