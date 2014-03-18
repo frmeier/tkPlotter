@@ -8,6 +8,7 @@ class Det
 {
     public:
 	Det() {};
+	virtual ~Det() {};
 	virtual bool hit(double eta, double &r, double &z) = 0; // Check if a track at a certain eta creates a hit. If yes, r and z contain the coordinates where this happens
 
     private:
