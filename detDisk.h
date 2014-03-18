@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "TVector3.h"
+
 #include "det.h"
 
 class DetDisk : public Det
@@ -11,6 +13,9 @@ class DetDisk : public Det
 	DetDisk();
 	DetDisk(double z, double r_min, double r_max);
 	bool hit(double eta, double &r, double &z);
+	double getEtaMin() { return _eta_min; };
+	double getEtaMax() { return _eta_max; };
+	ClassDef(DetDisk, 1);
 
     private:
 	void calcEtaBoundaries();
