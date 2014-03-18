@@ -9,7 +9,7 @@ class Det
     public:
 	Det() {};
 	virtual ~Det() {};
-	virtual bool hit(double eta, double &r, double &z) = 0; // Check if a track at a certain eta creates a hit. If yes, r and z contain the coordinates where this happens
+//	virtual bool hit(double eta, double &r, double &z) = 0; // Check if a track at a certain eta creates a hit. If yes, r and z contain the coordinates where this happens
 
     private:
 	virtual void calcEtaBoundaries() = 0; // calculates the eta coverage of the given detector unit
