@@ -18,6 +18,7 @@ class Det
 	TVector3 _vec_min, _vec_max; // min/max ordered by eta
 	double _eta_min, _eta_max;
 	bool _isVfpix;
+	int _nModules;
 };
 
 #endif
