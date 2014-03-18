@@ -3,8 +3,13 @@
 
 #include <string>
 
-class detDisk : public A
+#include "det.h"
+
+class DetDisk : public det
 {
+    public:
+	DetDisk();
+	DetDisk(double z, double r_min, double r_max);
 };
 
 #endif
