@@ -8,10 +8,10 @@ class Det
 {
     public:
 	Det() {};
-	bool hit(double eta, double &r, double &z) { }; // Check if a track at a certain eta creates a hit. If yes, r and z contain the coordinates where this happens
+	virtual bool hit(double eta, double &r, double &z) = 0; // Check if a track at a certain eta creates a hit. If yes, r and z contain the coordinates where this happens
 
     private:
-	void calcEtaBoundaries(); // calculates the eta coverage of the given detector unit
+	virtual void calcEtaBoundaries() = 0; // calculates the eta coverage of the given detector unit
 
 	std::string _type;
 	TVector3 _vec_min, _vec_max; // min/max ordered by eta
