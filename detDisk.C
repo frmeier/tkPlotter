@@ -31,6 +31,7 @@ bool DetDisk::hit(double eta, double &r, double &z)
 	z = _vec_min.z();
 	const double tantheta = TMath::Tan(2*TMath::ATan(TMath::Exp(-eta)));
 	r = z * tantheta;
+	return true;
     }
     else
 	return false;
