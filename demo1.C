@@ -13,20 +13,49 @@ void demo1()
 {
     Tracker trk;
 
+    // FPix
     { Det d; d.setDisk( 29.1, 4.5, 16.1, 56, false); trk.add(d); }
     { Det d; d.setDisk( 39.6, 4.5, 16.1, 56, false); trk.add(d); }
     { Det d; d.setDisk( 51.6, 4.5, 16.1, 56, false); trk.add(d); }
 
+    // BPix
     { Det d; d.setLayer(  3.0,  0.0, 27.4, 0, false); trk.add(d); }
     { Det d; d.setLayer(  6.8,  0.0, 27.4, 0, false); trk.add(d); }
     { Det d; d.setLayer( 10.9,  0.0, 27.4, 0, false); trk.add(d); }
-    { Det d; d.setLayer( 18.0,  0.0, 27.4, 0, false); trk.add(d); }
+    { Det d; d.setLayer( 16.0,  0.0, 27.4, 0, false); trk.add(d); }
 
+    /*
+    // Variante mit 6 Disks gleicher Grösse
     { Det d; d.setDisk(  83.0, 4.5, 16.1, 56, true); trk.add(d); }
     { Det d; d.setDisk(  99.0, 4.5, 16.1, 56, true); trk.add(d); }
     { Det d; d.setDisk( 138.0, 4.5, 16.1, 56, true); trk.add(d); }
     { Det d; d.setDisk( 175.0, 4.5, 16.1, 56, true); trk.add(d); }
     { Det d; d.setDisk( 218.0, 4.5, 16.1, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 264.0, 4.5, 16.1, 56, true); trk.add(d); }
+    */
+
+    // Variante mit 3 verschiedenen Diskgeometrien
+    { Det d; d.setDisk( 100.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 112.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 125.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 140.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 156.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 177.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 197.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 220.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 245.0, 13.5, 15.0, 56, true); trk.add(d); }
+
+    { Det d; d.setDisk( 76.0, 5.5, 12.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 120.0, 5.5, 12.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 190.0, 5.5, 12.0, 56, true); trk.add(d); }
+
+    { Det d; d.setDisk( 60.0, 3.2, 4.8, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 88.0, 3.2, 4.8, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 120.0, 3.2, 4.8, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 150.0, 3.2, 4.8, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 178.0, 3.2, 4.8, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 208.0, 3.2, 4.8, 56, true); trk.add(d); }
+
     { Det d; d.setDisk( 264.0, 4.5, 16.1, 56, true); trk.add(d); }
 
     cout << "Tracker consists of " << trk.getSize() << " units" << endl;
