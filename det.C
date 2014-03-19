@@ -33,7 +33,7 @@ void Det::calcEtaBoundaries()
     _eta_max = _vec_max.Eta();
 }
 
-bool Det::hit(double eta, double &r, double &z)
+bool Det::hit(double eta, double &r, double &z) const
 {
     r = 0;
     z = 0;

@@ -1,5 +1,5 @@
-#ifndef GUARD_detector_h
-#define GUARD_detector_h
+#ifndef GUARD_tracker_h
+#define GUARD_tracker_h
 
 #include <vector>
 
@@ -13,10 +13,10 @@ struct Trackresult
     double z_min;
 };
 
-class Detector
+class Tracker
 {
     public:
-	Detector() {};
+	Tracker() {};
 	void add(Det det);
 	Trackresult track(double eta);
 

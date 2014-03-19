@@ -10,11 +10,11 @@ class Det
 	Det();
 	void setDisk(double z, double r_min, double r_max, int nModules, bool isVfpix);
 	void setLayer(double r, double z_min, double z_max, int nModules, bool isVfpix);
-	bool hit(double eta, double &r, double &z);
-	double getEtaMin() { return _eta_min; };
-	double getEtaMax() { return _eta_max; };
-	bool getIsVfpix() { return _isVfpix; };
-	int getNModules() { return _nModules; };
+	bool hit(double eta, double &r, double &z) const;
+	double getEtaMin() const { return _eta_min; };
+	double getEtaMax() const { return _eta_max; };
+	bool getIsVfpix() const { return _isVfpix; };
+	int getNModules() const { return _nModules; };
 	ClassDef(Det, 1);
 
     private:
