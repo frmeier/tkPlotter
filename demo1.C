@@ -34,7 +34,7 @@ void demo1()
     const double eta_min(0);
     const double eta_max(5);
     const double eta_delta = eta_max-eta_min;
-    const int N(10);
+    const int N(5000);
     const double eta_step = eta_delta / N;
 
     TH1D *h1 = new TH1D("h1", "Number of hits", N, eta_min, eta_max);
@@ -43,7 +43,8 @@ void demo1()
     {
 	const double eta = eta_min + i*eta_step;
 	Trackresult res = trk.track(eta);
-	h1->Fill(res.nHits);
+	//cout << "eta: " << eta << " nHits: " << res.nHits << endl;
+	h1->SetBinContent(i+1,res.nHits);
     }
     h1->Draw();
 }
