@@ -17,10 +17,10 @@ void demo1()
     { Det d; d.setDisk( 39.6, 4.5, 16.1, 56, false); trk.add(d); }
     { Det d; d.setDisk( 51.6, 4.5, 16.1, 56, false); trk.add(d); }
 
-    { Det d; d.setLayer( 27.4, 0, 3.0, 0, false); trk.add(d); }
-    { Det d; d.setLayer( 27.4, 0, 6.8, 0, false); trk.add(d); }
-    { Det d; d.setLayer( 27.4, 0, 10.9, 0, false); trk.add(d); }
-    { Det d; d.setLayer( 27.4, 0, 18.0, 0, false); trk.add(d); }
+    { Det d; d.setLayer(  3.0,  0.0, 27.4, 0, false); trk.add(d); }
+    { Det d; d.setLayer(  6.8,  0.0, 27.4, 0, false); trk.add(d); }
+    { Det d; d.setLayer( 10.9,  0.0, 27.4, 0, false); trk.add(d); }
+    { Det d; d.setLayer( 18.0,  0.0, 27.4, 0, false); trk.add(d); }
 
     { Det d; d.setDisk(  83.0, 4.5, 16.1, 56, true); trk.add(d); }
     { Det d; d.setDisk(  99.0, 4.5, 16.1, 56, true); trk.add(d); }

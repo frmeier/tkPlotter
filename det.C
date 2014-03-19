@@ -37,6 +37,7 @@ bool Det::hit(double eta, double &r, double &z) const
 {
     r = 0;
     z = 0;
+
     if (eta >= _eta_min && eta <= _eta_max)
     {
 	if (_isDisk)
