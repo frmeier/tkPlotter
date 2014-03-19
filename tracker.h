@@ -7,6 +7,7 @@
 
 struct Trackresult
 {
+    Trackresult() : nHits(0), nHits_vfpix(0), r_min(0), r_max(0), z_min(0) {};
     int nHits;
     int nHits_vfpix;
     double r_min, r_max;
@@ -19,6 +20,7 @@ class Tracker
 	Tracker() {};
 	void add(Det det);
 	Trackresult track(double eta);
+	int getSize() const { return _detv.size(); };
 
     private:
 	std::vector<Det> _detv;
