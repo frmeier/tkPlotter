@@ -36,14 +36,15 @@ void demo1()
 
     // Variante mit 3 verschiedenen Diskgeometrien
     { Det d; d.setDisk( 100.0, 13.5, 15.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 112.0, 13.5, 15.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 125.0, 13.5, 15.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 140.0, 13.5, 15.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 156.0, 13.5, 15.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 177.0, 13.5, 15.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 197.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 111.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 123.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 136.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 150.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 166.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 184.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 200.0, 13.5, 15.0, 56, true); trk.add(d); }
     { Det d; d.setDisk( 220.0, 13.5, 15.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 245.0, 13.5, 15.0, 56, true); trk.add(d); }
+    { Det d; d.setDisk( 243.0, 13.5, 15.0, 56, true); trk.add(d); }
 
     { Det d; d.setDisk( 76.0, 5.5, 12.0, 56, true); trk.add(d); }
     { Det d; d.setDisk( 120.0, 5.5, 12.0, 56, true); trk.add(d); }
