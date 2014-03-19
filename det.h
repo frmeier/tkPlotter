@@ -7,17 +7,24 @@
 class Det
 {
     public:
-	Det() {};
-	virtual ~Det() {};
-//	virtual bool hit(double eta, double &r, double &z) = 0; // Check if a track at a certain eta creates a hit. If yes, r and z contain the coordinates where this happens
+	Det();
+	void setDisk(double z, double r_min, double r_max, int nModules, bool isVfpix);
+	void setLayer(double r, double z_min, double z_max, int nModules, bool isVfpix);
+	bool hit(double eta, double &r, double &z);
+	double getEtaMin() { return _eta_min; };
+	double getEtaMax() { return _eta_max; };
+	bool getIsVfpix() { return _isVfpix; };
+	int getNModules() { return _nModules; };
+	ClassDef(Det, 1);
 
     private:
-	virtual void calcEtaBoundaries() = 0; // calculates the eta coverage of the given detector unit
+	void calcEtaBoundaries(); // calculates the eta coverage of the given detector unit
 
 	std::string _type;
 	TVector3 _vec_min, _vec_max; // min/max ordered by eta
 	double _eta_min, _eta_max;
 	bool _isVfpix;
+	bool _isDisk;
 	int _nModules;
 };
 
