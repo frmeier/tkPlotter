@@ -37,7 +37,12 @@ void demo1()
     const int N(5000);
     const double eta_step = eta_delta / N;
 
-    TH1D *h1 = new TH1D("h1", "Number of hits", N, eta_min, eta_max);
+    TH1D *h1 = new TH1D("h1", "Full tracker;#eta;# of hits", N, eta_min, eta_max);
+    TH1D *h2 = new TH1D("h2", "VFPix only;#eta;# of hits", N, eta_min, eta_max);
+    TH1D *h3 = new TH1D("h3", "Full tracker;#eta;r_{min} [cm]", N, eta_min, eta_max);
+    TH1D *h4 = new TH1D("h4", "Full tracker;#eta;r_{max} [cm]", N, eta_min, eta_max);
+    TH1D *h5 = new TH1D("h5", "Full tracker;#eta;r_{max}-r_{min} [cm]", N, eta_min, eta_max);
+    TH1D *h6 = new TH1D("h6", "Full tracker;#eta;z_{min} [cm]", N, eta_min, eta_max);
 
     for (int i = 0; i!=N; i++)
     {
@@ -45,7 +50,18 @@ void demo1()
 	Trackresult res = trk.track(eta);
 	//cout << "eta: " << eta << " nHits: " << res.nHits << endl;
 	h1->SetBinContent(i+1,res.nHits);
+	h2->SetBinContent(i+1,res.nHits_vfpix);
+	h3->SetBinContent(i+1,res.r_min);
+	h4->SetBinContent(i+1,res.r_max);
+	h5->SetBinContent(i+1,res.r_max-res.r_min);
+	h6->SetBinContent(i+1,res.z_min);
     }
-    h1->Draw();
+    TCanvas *c = new TCanvas("c","c", 500, 500);
+    h1->Draw(); c->SaveAs("h1.pdf");
+    h2->Draw(); c->SaveAs("h2.pdf");
+    h3->Draw(); c->SaveAs("h3.pdf");
+    h4->Draw(); c->SaveAs("h4.pdf");
+    h5->Draw(); c->SaveAs("h5.pdf");
+    h6->Draw(); c->SaveAs("h6.pdf");
 }
 
