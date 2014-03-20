@@ -14,6 +14,7 @@ class Det
 	double getEtaMin() const { return _eta_min; };
 	double getEtaMax() const { return _eta_max; };
 	bool getIsVfpix() const { return _isVfpix; };
+	bool getIsDisk() const { return _isDisk; };
 	int getNModules() const { return _nModules; };
 	double getR0() const { return _vec_min.x(); };
 	double getR1() const { return _vec_max.x(); };
