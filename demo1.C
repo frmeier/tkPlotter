@@ -24,6 +24,19 @@ void demo1(int strawman)
     { Det d; d.setLayer( 10.9,  0.0, 27.4, 0, false); trk.add(d); }
     { Det d; d.setLayer( 16.0,  0.0, 27.4, 0, false); trk.add(d); }
 
+    // Variant used for the initial proposal: 4 full disks, 3 half disks
+    if (strawman == 0)
+    {
+	{ Det d; d.setDisk(  76.0, 4.5, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk(  85.0, 4.5, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 108.0, 4.5, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 140.0, 4.5, 16.1, 56, true); trk.add(d); }
+
+	{ Det d; d.setDisk( 200.0, 10.0, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 230.0, 10.0, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 264.0, 10.0, 16.1, 56, true); trk.add(d); }
+    }
+
     // Variant using 6 disks a la FPix
     if (strawman == 1)
     {
@@ -63,26 +76,27 @@ void demo1(int strawman)
 	{ Det d; d.setDisk( 138.0, 3.2, 4.8, 56, true); trk.add(d); }
 	{ Det d; d.setDisk( 164.0, 3.2, 4.8, 56, true); trk.add(d); }
 	{ Det d; d.setDisk( 190.0, 3.2, 4.8, 56, true); trk.add(d); }
+
+	{ Det d; d.setDisk( 264.0, 4.5, 16.1, 56, true); trk.add(d); }
     }
 
     // Variant using 6 disks a la FPix but the rings are separated in z for disks 1-5
     if (strawman == 3)
     {
 	{ Det d; d.setDisk(  68.0, 4.5, 11.0, 56, true); trk.add(d); }
-	{ Det d; d.setDisk(  97.0, 4.5, 11.0, 56, true); trk.add(d); }
-	{ Det d; d.setDisk( 135.0, 4.5, 11.0, 56, true); trk.add(d); }
-	{ Det d; d.setDisk( 180.0, 4.5, 11.0, 56, true); trk.add(d); }
-	{ Det d; d.setDisk( 222.0, 4.5, 11.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk(  92.0, 4.5, 11.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 125.0, 4.5, 11.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 170.0, 4.5, 11.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 210.0, 4.5, 11.0, 56, true); trk.add(d); }
 
 	{ Det d; d.setDisk(  90.0, 10.0, 16.1, 56, true); trk.add(d); }
-	{ Det d; d.setDisk( 125.0, 10.0, 16.1, 56, true); trk.add(d); }
-	{ Det d; d.setDisk( 170.0, 10.0, 16.1, 56, true); trk.add(d); }
-	{ Det d; d.setDisk( 210.0, 10.0, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 115.0, 10.0, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 140.0, 10.0, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 180.0, 10.0, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 220.0, 10.0, 16.1, 56, true); trk.add(d); }
 
 	{ Det d; d.setDisk( 264.0, 4.5, 16.1, 56, true); trk.add(d); }
     }
-
-    { Det d; d.setDisk( 264.0, 4.5, 16.1, 56, true); trk.add(d); }
 
     cout << "Tracker consists of " << trk.getSize() << " units" << endl;
 
@@ -112,13 +126,13 @@ void demo1(int strawman)
 	h6->SetBinContent(i+1,res.z_min);
     }
     TCanvas *c = new TCanvas("c","c", 500, 500);
-    trk.draw(0, 0, 300, 20); c->SaveAs("tracker.pdf");
-    h1->Draw(); c->SaveAs("h1.pdf");
-    h2->Draw(); c->SaveAs("h2.pdf");
-    h3->Draw(); c->SaveAs("h3.pdf");
-    h4->Draw(); c->SaveAs("h4.pdf");
-    h5->Draw(); c->SaveAs("h5.pdf");
-    h6->Draw(); c->SaveAs("h6.pdf");
+    trk.draw(0, 0, 300, 20); c->SaveAs("tracker.pdf"); c->SaveAs("tracker.png");
+    h1->Draw(); c->SaveAs("h1.pdf"); c->SaveAs("h1.png");
+    h2->Draw(); c->SaveAs("h2.pdf"); c->SaveAs("h2.png");
+    h3->Draw(); c->SaveAs("h3.pdf"); c->SaveAs("h3.png");
+    h4->Draw(); c->SaveAs("h4.pdf"); c->SaveAs("h4.png");
+    h5->Draw(); c->SaveAs("h5.pdf"); c->SaveAs("h5.png");
+    h6->Draw(); c->SaveAs("h6.pdf"); c->SaveAs("h6.png");
     trk.dump();
 }
 
