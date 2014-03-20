@@ -8,7 +8,7 @@ You will need a recent version of root to use it. Use he content as compiled mac
 Usage:
 - Have root installed
 - Clone this repo
-- .L det.C+
-- .L tracker.C+
-- .L demo1.C+
-- demo(N) where N is the number of the strawman you want the plots for
+- ```.L det.C+```
+- ```.L tracker.C+```
+- ```.L demo1.C+```
+- ```demo(N)``` where N is the number of the strawman you want the plots for
