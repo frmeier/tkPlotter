@@ -9,7 +9,7 @@
 using std::cout;
 using std::endl;
 
-void demo1()
+void demo1(int strawman)
 {
     Tracker trk;
 
@@ -24,42 +24,46 @@ void demo1()
     { Det d; d.setLayer( 10.9,  0.0, 27.4, 0, false); trk.add(d); }
     { Det d; d.setLayer( 16.0,  0.0, 27.4, 0, false); trk.add(d); }
 
-    /*
-    // Variante mit 6 Disks gleicher Grösse
-    { Det d; d.setDisk(  83.0, 4.5, 16.1, 56, true); trk.add(d); }
-    { Det d; d.setDisk(  99.0, 4.5, 16.1, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 138.0, 4.5, 16.1, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 175.0, 4.5, 16.1, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 218.0, 4.5, 16.1, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 264.0, 4.5, 16.1, 56, true); trk.add(d); }
-    */
+    // Variant using 6 disks a la FPix
+    if (strawman == 1)
+    {
+	{ Det d; d.setDisk(  83.0, 4.5, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk(  99.0, 4.5, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 138.0, 4.5, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 175.0, 4.5, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 218.0, 4.5, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 264.0, 4.5, 16.1, 56, true); trk.add(d); }
+    }
 
-    // Variante mit 3 verschiedenen Diskgeometrien
-    { Det d; d.setDisk( 100.0, 14.5, 16.0, 56, true); trk.add(d); } // 1
-    { Det d; d.setDisk( 109.0, 14.5, 16.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 118.0, 14.5, 16.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 128.0, 14.5, 16.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 140.0, 14.5, 16.0, 56, true); trk.add(d); } // 5
-    { Det d; d.setDisk( 153.0, 14.5, 16.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 168.0, 14.5, 16.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 184.0, 14.5, 16.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 202.0, 14.5, 16.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 222.0, 14.5, 16.0, 56, true); trk.add(d); } // 10
-    { Det d; d.setDisk( 240.0, 14.5, 16.0, 56, true); trk.add(d); }
+    // Variant optimising lever arm using small and large r rings
+    if (strawman == 2)
+    {
+	{ Det d; d.setDisk( 100.0, 14.5, 16.0, 56, true); trk.add(d); } // 1
+	{ Det d; d.setDisk( 109.0, 14.5, 16.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 118.0, 14.5, 16.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 128.0, 14.5, 16.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 140.0, 14.5, 16.0, 56, true); trk.add(d); } // 5
+	{ Det d; d.setDisk( 153.0, 14.5, 16.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 168.0, 14.5, 16.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 184.0, 14.5, 16.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 202.0, 14.5, 16.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 222.0, 14.5, 16.0, 56, true); trk.add(d); } // 10
+	{ Det d; d.setDisk( 240.0, 14.5, 16.0, 56, true); trk.add(d); }
 
-    { Det d; d.setDisk( 66.0, 5.5, 12.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 88.0, 5.5, 12.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 130.0, 5.5, 12.0, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 180.0, 5.5, 12.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 66.0, 5.5, 12.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 88.0, 5.5, 12.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 130.0, 5.5, 12.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 180.0, 5.5, 12.0, 56, true); trk.add(d); }
 
-    { Det d; d.setDisk( 34.0, 3.2, 4.8, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 48.0, 3.2, 4.8, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 65.0, 3.2, 4.8, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 84.0, 3.2, 4.8, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 112.0, 3.2, 4.8, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 138.0, 3.2, 4.8, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 164.0, 3.2, 4.8, 56, true); trk.add(d); }
-    { Det d; d.setDisk( 190.0, 3.2, 4.8, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 34.0, 3.2, 4.8, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 48.0, 3.2, 4.8, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 65.0, 3.2, 4.8, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 84.0, 3.2, 4.8, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 112.0, 3.2, 4.8, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 138.0, 3.2, 4.8, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 164.0, 3.2, 4.8, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 190.0, 3.2, 4.8, 56, true); trk.add(d); }
+    }
 
     { Det d; d.setDisk( 264.0, 4.5, 16.1, 56, true); trk.add(d); }
 
