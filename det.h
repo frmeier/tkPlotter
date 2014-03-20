@@ -15,6 +15,10 @@ class Det
 	double getEtaMax() const { return _eta_max; };
 	bool getIsVfpix() const { return _isVfpix; };
 	int getNModules() const { return _nModules; };
+	double getR0() const { return _vec_min.x(); };
+	double getR1() const { return _vec_max.x(); };
+	double getZ0() const { return _vec_min.z(); };
+	double getZ1() const { return _vec_max.z(); };
 	ClassDef(Det, 1);
 
     private:

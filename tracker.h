@@ -21,6 +21,8 @@ class Tracker
 	void add(Det det);
 	Trackresult track(double eta);
 	int getSize() const { return _detv.size(); };
+	//void draw(double x0, double y0, double x1, double y1) const; // draws the tracker
+	void dump() const; // dumps the tracker as text
 
     private:
 	std::vector<Det> _detv;

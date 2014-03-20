@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "tracker.h"
 #include "det.h"
 
@@ -30,5 +32,22 @@ Trackresult Tracker::track(double eta)
 	}
     }
     return res;
+}
+
+void Tracker::dump() const
+{
+    std::cout << "#Dump of tracker" << endl;
+    std::cout << "#No R0 Z0 R1 Z1" << endl;
+    int i=0;
+    for (std::vector<Det>::const_iterator it = _detv.begin(); it != _detv.end(); it++)
+    {
+	std::cout << i << " ";
+	std::cout << it->getR0() << " ";
+	std::cout << it->getZ0() << " ";
+	std::cout << it->getR1() << " ";
+	std::cout << it->getZ1() << " ";
+	std::cout << std::endl;
+	i++;
+    }
 }
 
