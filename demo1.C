@@ -65,6 +65,23 @@ void demo1(int strawman)
 	{ Det d; d.setDisk( 190.0, 3.2, 4.8, 56, true); trk.add(d); }
     }
 
+    // Variant using 6 disks a la FPix but the rings are separated in z for disks 1-5
+    if (strawman == 3)
+    {
+	{ Det d; d.setDisk(  68.0, 4.5, 11.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk(  97.0, 4.5, 11.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 135.0, 4.5, 11.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 180.0, 4.5, 11.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 222.0, 4.5, 11.0, 56, true); trk.add(d); }
+
+	{ Det d; d.setDisk(  90.0, 10.0, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 125.0, 10.0, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 170.0, 10.0, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 210.0, 10.0, 16.1, 56, true); trk.add(d); }
+
+	{ Det d; d.setDisk( 264.0, 4.5, 16.1, 56, true); trk.add(d); }
+    }
+
     { Det d; d.setDisk( 264.0, 4.5, 16.1, 56, true); trk.add(d); }
 
     cout << "Tracker consists of " << trk.getSize() << " units" << endl;
