@@ -2,6 +2,7 @@
 
 #include "TH1F.h"
 #include "TLine.h"
+#include "TPolyLine.h"
 
 #include "tracker.h"
 #include "det.h"
@@ -45,6 +46,8 @@ void Tracker::draw(double z0, double r0, double z1, double r1) const // draws th
     h->SetStats(false);
     h->Draw();
 
+    drawVolume(volBPix, 2);
+
     for (std::vector<Det>::const_iterator it = _detv.begin(); it != _detv.end(); it++)
     {
 	TLine *l = new TLine(it->getZ0(), it->getR0(), it->getZ1(), it->getR1());
@@ -54,6 +57,15 @@ void Tracker::draw(double z0, double r0, double z1, double r1) const // draws th
 	    l->SetLineColor(15);
 	l->Draw();
     }
+}
+
+void Tracker::drawVolume(TkVolume vol, int col) const
+{
+    TPolyLine *pline = new TPolyLine(vol.size(), &vol.x_[0], &vol.y_[0]);
+    pline->SetFillColor(col);
+    pline->SetLineColor(col);
+    pline->SetLineWidth(1);
+    pline->Draw("f");
 }
 
 void Tracker::dump() const

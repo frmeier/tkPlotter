@@ -98,6 +98,54 @@ void demo1(int strawman)
 	{ Det d; d.setDisk( 264.0, 4.5, 16.1, 56, true); trk.add(d); }
     }
 
+    // Variant with conical supply tube, first attempt
+    if (strawman == 4)
+    {
+	// another FPix disk
+	{ Det d; d.setDisk(  68.0, 4.5, 16.1, 56, true); trk.add(d); }
+
+	// Now the start of VFpix
+	{ Det d; d.setDisk(  85.0, 4.5, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 109.0, 4.5, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 140.0, 4.5, 16.1, 56, true); trk.add(d); }
+
+	// In conical part, increasing radii
+	{ Det d; d.setDisk( 183.0, 7.5, 20.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 230.0, 7.5, 35.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 265.0,12.0, 39.0, 56, true); trk.add(d); }
+    }
+
+    // Variant with conical supply tube, first attempt
+    if (strawman == 5)
+    {
+	// another FPix disk
+	{ Det d; d.setDisk(  51.6, 3.0,  4.5, 56, true); trk.add(d); }
+	{ Det d; d.setDisk(  68.0, 4.5, 16.1, 56, true); trk.add(d); }
+
+	// Now the start of VFpix
+	{ Det d; d.setDisk(  85.0, 4.5, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 109.0, 4.5, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 140.0, 4.5, 16.1, 56, true); trk.add(d); }
+
+	// In conical part, increasing radii
+	{ Det d; d.setDisk( 183.0, 7.5, 20.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 230.0, 7.5, 35.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 265.0,12.0, 39.0, 56, true); trk.add(d); }
+    }
+
+    // Define tracker volumes
+    trk.volBPix.addPoint(0, 2.0);
+    trk.volBPix.addPoint(60, 2.0);
+    trk.volBPix.addPoint(60, 17.4);
+    trk.volBPix.addPoint(152, 17.4);
+    trk.volBPix.addPoint(290, 33.4);
+    trk.volBPix.addPoint(290, 50);
+    trk.volBPix.addPoint(280, 50);
+    trk.volBPix.addPoint(280, 34);
+    trk.volBPix.addPoint(156, 19);
+    trk.volBPix.addPoint(0, 19);
+    trk.volBPix.addPoint(0, 2.0);
+
     cout << "Tracker consists of " << trk.getSize() << " units" << endl;
 
     const double eta_min(0);
@@ -126,7 +174,7 @@ void demo1(int strawman)
 	h6->SetBinContent(i+1,res.z_min);
     }
     TCanvas *c = new TCanvas("c","c", 500, 500);
-    trk.draw(0, 0, 300, 20); c->SaveAs("tracker.pdf"); c->SaveAs("tracker.png");
+    trk.draw(0, 0, 300, 50); c->SaveAs("tracker.pdf"); c->SaveAs("tracker.png");
     h1->Draw(); c->SaveAs("h1.pdf"); c->SaveAs("h1.png");
     h2->Draw(); c->SaveAs("h2.pdf"); c->SaveAs("h2.png");
     h3->Draw(); c->SaveAs("h3.pdf"); c->SaveAs("h3.png");
