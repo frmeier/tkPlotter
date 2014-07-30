@@ -135,8 +135,8 @@ void demo1(int strawman)
 
     // Define tracker volumes
     trk.volBPix.addPoint(0, 2.0);
-    trk.volBPix.addPoint(60, 2.0);
-    trk.volBPix.addPoint(60, 17.4);
+    trk.volBPix.addPoint(30, 2.0);
+    trk.volBPix.addPoint(30, 17.4);
     trk.volBPix.addPoint(152, 17.4);
     trk.volBPix.addPoint(290, 33.4);
     trk.volBPix.addPoint(290, 50);
@@ -145,6 +145,18 @@ void demo1(int strawman)
     trk.volBPix.addPoint(156, 19);
     trk.volBPix.addPoint(0, 19);
     trk.volBPix.addPoint(0, 2.0);
+
+    trk.volFPix.addPoint(30, 2.0);
+    trk.volFPix.addPoint(70, 2.0);
+    trk.volFPix.addPoint(70, 15.6);
+    trk.volFPix.addPoint(141, 15.6);
+    trk.volFPix.addPoint(300, 33);
+    trk.volFPix.addPoint(300, 50);
+    trk.volFPix.addPoint(290, 50);
+    trk.volFPix.addPoint(290, 33.2);
+    trk.volFPix.addPoint(150, 17.2);
+    trk.volFPix.addPoint(30, 17.2);
+    trk.volFPix.addPoint(30, 2.0);
 
     cout << "Tracker consists of " << trk.getSize() << " units" << endl;
 

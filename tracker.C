@@ -47,6 +47,8 @@ void Tracker::draw(double z0, double r0, double z1, double r1) const // draws th
     h->Draw();
 
     drawVolume(volBPix, 2);
+    drawVolume(volFPix, 3);
+    drawVolume(volVFPix, 4);
 
     for (std::vector<Det>::const_iterator it = _detv.begin(); it != _detv.end(); it++)
     {
