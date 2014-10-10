@@ -13,6 +13,8 @@ void demo1(int strawman)
 {
     Tracker trk;
 
+    if (strawman <= 3)
+    {
     // FPix
     { Det d; d.setDisk( 29.1, 4.5, 16.1, 56, false); trk.add(d); }
     { Det d; d.setDisk( 39.6, 4.5, 16.1, 56, false); trk.add(d); }
@@ -99,7 +101,7 @@ void demo1(int strawman)
     }
 
     // Variant with conical supply tube, first attempt
-    if (strawman == 4)
+    if (strawman == 104)
     {
 	// another FPix disk
 	{ Det d; d.setDisk(  68.0, 4.5, 16.1, 56, true); trk.add(d); }
@@ -116,7 +118,7 @@ void demo1(int strawman)
     }
 
     // Variant with conical supply tube, first attempt
-    if (strawman == 5)
+    if (strawman == 105)
     {
 	// another FPix disk
 	{ Det d; d.setDisk(  51.6, 3.0,  4.5, 56, true); trk.add(d); }
@@ -132,8 +134,40 @@ void demo1(int strawman)
 	{ Det d; d.setDisk( 230.0, 7.5, 35.0, 56, true); trk.add(d); }
 	{ Det d; d.setDisk( 265.0,12.0, 39.0, 56, true); trk.add(d); }
     }
+    }
+
+    if (strawman == 4)
+    {
+        // BPix
+        { Det d; d.setLayer(  2.0,  0.0, 20.0, 0, false); trk.add(d); }
+        { Det d; d.setLayer(  4.0,  0.0, 33.0, 0, false); trk.add(d); }
+        { Det d; d.setLayer(  7.0,  0.0, 33.0, 0, false); trk.add(d); }
+        { Det d; d.setLayer( 11.5,  0.0, 33.0, 0, false); trk.add(d); }
+        { Det d; d.setLayer( 17.6,  0.0, 33.0, 0, false); trk.add(d); }
+
+        // FPix
+        { Det d; d.setDisk( 35.5, 4.0, 16.0, 56, false); trk.add(d); }
+        { Det d; d.setDisk( 47.5, 4.0, 16.0, 56, false); trk.add(d); }
+        { Det d; d.setDisk( 75.0, 10.0, 16.0, 56, false); trk.add(d); }
+
+        // VFPix
+        { Det d; d.setLayer(  2.0, 20.0, 55.0, 0, true); trk.add(d); }
+	{ Det d; d.setDisk( 75.0, 4.0, 10.0, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 95.0, 4.0, 14.6, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 120.0, 4.5, 14.6, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 160.0, 6.0, 12, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 165.0, 10.5, 16.1, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 215.0, 8.0, 20, 56, true); trk.add(d); }
+	{ Det d; d.setDisk( 285.0, 10.5, 28, 56, true); trk.add(d); }
 
     // Define tracker volumes
+    trk.volBP.addPoint(0, 0);
+    trk.volBP.addPoint(300, 0);
+    trk.volBP.addPoint(300, 4.6);
+    trk.volBP.addPoint(96, 1.5);
+    trk.volBP.addPoint(0, 1.5);
+    trk.volBP.addPoint(0, 0);
+
     trk.volBPix.addPoint(0, 2.0);
     trk.volBPix.addPoint(30, 2.0);
     trk.volBPix.addPoint(30, 17.4);
@@ -157,6 +191,50 @@ void demo1(int strawman)
     trk.volFPix.addPoint(150, 17.2);
     trk.volFPix.addPoint(30, 17.2);
     trk.volFPix.addPoint(30, 2.0);
+
+    trk.volVFPix.addPoint(70, 2.0);
+    trk.volVFPix.addPoint(90, 2.0);
+    trk.volVFPix.addPoint(310, 10);
+    trk.volVFPix.addPoint(310, 50);
+    trk.volVFPix.addPoint(300, 50);
+    trk.volVFPix.addPoint(300, 32.2);
+    trk.volVFPix.addPoint(143.5, 15.4);
+    trk.volVFPix.addPoint(70, 15.4);
+    trk.volVFPix.addPoint(70, 2.0);
+    }
+
+    if (strawman == 5)
+    {
+        // BPix
+        { Det d; d.setLayer(  3.0,  0.0, 32.0, 0, false); trk.add(d); } // vtx_b1
+        { Det d; d.setLayer(  6.8,  0.0, 32.0, 0, false); trk.add(d); } // vtx_b2
+        { Det d; d.setLayer( 11.8,  0.0, 32.0, 0, false); trk.add(d); } // vtx_b3
+        { Det d; d.setLayer( 18.8,  0.0, 32.0, 0, false); trk.add(d); } // vtx_b4
+
+        // FPix
+        { Det d; d.setDisk( 34.0, 12.0, 20.0, 56, false); trk.add(d); } // vtx_f1_d1
+        { Det d; d.setDisk( 37.0,  6.8, 12.8, 56, false); trk.add(d); } // vtx_f1_d2
+        { Det d; d.setDisk( 54.0, 12.0, 20.0, 56, false); trk.add(d); } // vtx_f2_d1
+        { Det d; d.setDisk( 69.0,  7.6, 15.6, 56, false); trk.add(d); } // vtx_f2_d2
+        { Det d; d.setDisk( 92.0, 12.0, 20.0, 56, false); trk.add(d); } // vtx_f3_d1
+        { Det d; d.setDisk(109.0, 12.0, 20.0, 56, false); trk.add(d); } // vtx_f4_d1
+        { Det d; d.setDisk(145.0, 16.0, 20.0, 56, true); trk.add(d); } // vtx_f5_d1
+
+        // VFPix
+        { Det d; d.setLayer(  3.0, 32.0, 72.0, 0, true); trk.add(d); } // pt_b1
+	{ Det d; d.setDisk( 88.0, 3.2, 11.2, 56, true); trk.add(d); } // pt_f1_d1
+	{ Det d; d.setDisk(126.0, 9.2, 15.2, 56, true); trk.add(d); } // pt_f2_d1
+	{ Det d; d.setDisk(144.0, 5.4, 11.4, 56, true); trk.add(d); } // pt_f2_d2
+	{ Det d; d.setDisk(183.0,12.2, 20.2, 56, true); trk.add(d); } // pt_f3_d1
+	{ Det d; d.setDisk(189.0, 7.0, 13.0, 56, true); trk.add(d); } // pt_f3_d2
+	{ Det d; d.setDisk(233.0,17.6, 25.6, 56, true); trk.add(d); } // pt_f4_d1
+	{ Det d; d.setDisk(230.0,11.8, 17.8, 56, true); trk.add(d); } // pt_f4_d2
+	{ Det d; d.setDisk(238.0, 8.8, 12.8, 56, true); trk.add(d); } // pt_f4_d3
+	{ Det d; d.setDisk(287.0,24.0, 32.0, 56, true); trk.add(d); } // pt_f5_d1
+	{ Det d; d.setDisk(284.0,16.0, 24.0, 56, true); trk.add(d); } // pt_f5_d2
+	{ Det d; d.setDisk(288.0,10.6, 16.6, 56, true); trk.add(d); } // pt_f5_d3
+    }
+
 
     cout << "Tracker consists of " << trk.getSize() << " units" << endl;
 

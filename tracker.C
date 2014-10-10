@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 #include "TH1F.h"
 #include "TLine.h"
@@ -40,15 +41,19 @@ Trackresult Tracker::track(double eta)
 
 void Tracker::draw(double z0, double r0, double z1, double r1) const // draws the tracker
 {
+    
     TH1F *h = new TH1F("tracker","Layout of tracker;z [cm];r [cm]", 1, z0, z1);
     h->SetMinimum(r0);
     h->SetMaximum(r1);
     h->SetStats(false);
     h->Draw();
 
+/*
+    drawVolume(volBP, 1);
     drawVolume(volBPix, 2);
     drawVolume(volFPix, 3);
     drawVolume(volVFPix, 4);
+*/
 
     for (std::vector<Det>::const_iterator it = _detv.begin(); it != _detv.end(); it++)
     {
@@ -64,7 +69,7 @@ void Tracker::draw(double z0, double r0, double z1, double r1) const // draws th
 void Tracker::drawVolume(TkVolume vol, int col) const
 {
     TPolyLine *pline = new TPolyLine(vol.size(), &vol.x_[0], &vol.y_[0]);
-    pline->SetFillColor(col);
+    pline->SetFillColorAlpha(col,0.3);
     pline->SetLineColor(col);
     pline->SetLineWidth(1);
     pline->Draw("f");
