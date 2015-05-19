@@ -7,11 +7,14 @@
 // Holds basic properties of different Det parts
 struct DetProp
 {
+    std::string name; // Identifies the type, short mnemonic style
+    std::string description; // Longer description, for nice reporting
     double w, l; // dimensions of module in mm
     double alpha, beta; // tilt angles, usually 0. alpha around w, beta around l
     double thickness; // thickness in mm
     double X0; // radiation length in g/cm2
     double density; // density in g/cm3
+    int col; // color to be used to draw object
     double area() { return w*l; };
 };
 
