@@ -4,6 +4,7 @@
 #include "TH1F.h"
 #include "TLine.h"
 #include "TPolyLine.h"
+#include "TLatex.h"
 
 #include "tracker.h"
 #include "det.h"
@@ -55,14 +56,32 @@ void Tracker::draw(double z0, double r0, double z1, double r1) const // draws th
     drawVolume(volVFPix, 4);
 */
 
+    TLatex *tl = new TLatex;
+    tl->SetTextSize(0.02);
     for (std::vector<Det>::const_iterator it = _detv.begin(); it != _detv.end(); it++)
     {
-	TLine *l = new TLine(it->getZ0(), it->getR0(), it->getZ1(), it->getR1());
-	if(it->getIsVfpix())
-	    l->SetLineColor(4);
-	else
-	    l->SetLineColor(15);
-	l->Draw();
+        TLine *l = new TLine(it->getZ0(), it->getR0(), it->getZ1(), it->getR1());
+        if(it->getIsVfpix())
+        {
+            l->SetLineColor(4);
+            tl->SetTextColor(4);
+        }
+        else
+        {
+            l->SetLineColor(15);
+            tl->SetTextColor(15);
+        }
+        l->Draw();
+        if (it->getIsDisk())
+        {
+            tl->SetTextAngle(90);
+            tl->DrawLatex(it->getZ0(), it->getR0(), it->getName().c_str());
+        }
+        else
+        {
+            tl->SetTextAngle(0);
+            tl->DrawLatex(it->getZ0(), it->getR0(), it->getName().c_str());
+        }
     }
 }
 
