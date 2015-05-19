@@ -8,8 +8,8 @@ class Det
 {
     public:
 	Det();
-	void setDisk(double z, double r_min, double r_max, int nModules, bool isVfpix);
-	void setLayer(double r, double z_min, double z_max, int nModules, bool isVfpix);
+	void setDisk(double z, double r_min, double r_max, int nModules, bool isVfpix, std::string name = "");
+	void setLayer(double r, double z_min, double z_max, int nModules, bool isVfpix, std::string name = "");
 	bool hit(double eta, double &r, double &z) const;
 	double getEtaMin() const { return _eta_min; };
 	double getEtaMax() const { return _eta_max; };
@@ -20,6 +20,7 @@ class Det
 	double getR1() const { return _vec_max.x(); };
 	double getZ0() const { return _vec_min.z(); };
 	double getZ1() const { return _vec_max.z(); };
+    std::string getName() const { return _name; };
 	ClassDef(Det, 1);
 
     private:
@@ -31,6 +32,7 @@ class Det
 	bool _isVfpix;
 	bool _isDisk;
 	int _nModules;
+    std::string _name;
 };
 
 #endif

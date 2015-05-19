@@ -206,33 +206,33 @@ void demo1(int strawman)
     if (strawman == 5)
     {
         // BPix
-        { Det d; d.setLayer(  3.0,  0.0, 32.0, 0, false); trk.add(d); } // vtx_b1
-        { Det d; d.setLayer(  6.8,  0.0, 32.0, 0, false); trk.add(d); } // vtx_b2
-        { Det d; d.setLayer( 11.8,  0.0, 32.0, 0, false); trk.add(d); } // vtx_b3
-        { Det d; d.setLayer( 18.8,  0.0, 32.0, 0, false); trk.add(d); } // vtx_b4
+        { Det d; d.setLayer(  3.0,  0.0, 32.0, 0, false, "vtx_b1"); trk.add(d); } // vtx_b1
+        { Det d; d.setLayer(  6.8,  0.0, 32.0, 0, false, "vtx_b2"); trk.add(d); } // vtx_b2
+        { Det d; d.setLayer( 11.8,  0.0, 32.0, 0, false, "vtx_b3"); trk.add(d); } // vtx_b3
+        { Det d; d.setLayer( 18.8,  0.0, 32.0, 0, false, "vtx_b4"); trk.add(d); } // vtx_b4
 
         // FPix
-        { Det d; d.setDisk( 34.0, 12.0, 20.0, 56, false); trk.add(d); } // vtx_f1_d1
-        { Det d; d.setDisk( 37.0,  6.8, 12.8, 56, false); trk.add(d); } // vtx_f1_d2
-        { Det d; d.setDisk( 54.0, 12.0, 20.0, 56, false); trk.add(d); } // vtx_f2_d1
-        { Det d; d.setDisk( 69.0,  7.6, 15.6, 56, false); trk.add(d); } // vtx_f2_d2
-        { Det d; d.setDisk( 92.0, 12.0, 20.0, 56, false); trk.add(d); } // vtx_f3_d1
-        { Det d; d.setDisk(109.0, 12.0, 20.0, 56, false); trk.add(d); } // vtx_f4_d1
-        { Det d; d.setDisk(145.0, 16.0, 20.0, 56, true); trk.add(d); } // vtx_f5_d1
+        { Det d; d.setDisk( 34.0, 12.0, 20.0, 56, false, "vtx_f1_d1"); trk.add(d); } // vtx_f1_d1
+        { Det d; d.setDisk( 37.0,  6.8, 12.8, 56, false, "vtx_f1_d2"); trk.add(d); } // vtx_f1_d2
+        { Det d; d.setDisk( 54.0, 12.0, 20.0, 56, false, "vtx_f2_d1"); trk.add(d); } // vtx_f2_d1
+        { Det d; d.setDisk( 69.0,  7.6, 15.6, 56, false, "vtx_f2_d2"); trk.add(d); } // vtx_f2_d2
+        { Det d; d.setDisk( 92.0, 12.0, 20.0, 56, false, "vtx_f3_d1"); trk.add(d); } // vtx_f3_d1
+        { Det d; d.setDisk(109.0, 12.0, 20.0, 56, false, "vtx_f4_d1"); trk.add(d); } // vtx_f4_d1
+        { Det d; d.setDisk(145.0, 16.0, 20.0, 56, true, "vtx_f5_d1"); trk.add(d); } // vtx_f5_d1
 
         // VFPix
-        { Det d; d.setLayer(  3.0, 32.0, 72.0, 0, true); trk.add(d); } // pt_b1
-	{ Det d; d.setDisk( 88.0, 3.2, 11.2, 56, true); trk.add(d); } // pt_f1_d1
-	{ Det d; d.setDisk(126.0, 9.2, 15.2, 56, true); trk.add(d); } // pt_f2_d1
-	{ Det d; d.setDisk(144.0, 5.4, 11.4, 56, true); trk.add(d); } // pt_f2_d2
-	{ Det d; d.setDisk(183.0,12.2, 20.2, 56, true); trk.add(d); } // pt_f3_d1
-	{ Det d; d.setDisk(189.0, 7.0, 13.0, 56, true); trk.add(d); } // pt_f3_d2
-	{ Det d; d.setDisk(233.0,17.6, 25.6, 56, true); trk.add(d); } // pt_f4_d1
-	{ Det d; d.setDisk(230.0,11.8, 17.8, 56, true); trk.add(d); } // pt_f4_d2
-	{ Det d; d.setDisk(238.0, 8.8, 12.8, 56, true); trk.add(d); } // pt_f4_d3
-	{ Det d; d.setDisk(287.0,24.0, 32.0, 56, true); trk.add(d); } // pt_f5_d1
-	{ Det d; d.setDisk(284.0,16.0, 24.0, 56, true); trk.add(d); } // pt_f5_d2
-	{ Det d; d.setDisk(288.0,10.6, 16.6, 56, true); trk.add(d); } // pt_f5_d3
+        { Det d; d.setLayer(  3.0, 32.0, 72.0, 0, true, "pt_b1"); trk.add(d); } // pt_b1
+        { Det d; d.setDisk( 88.0, 3.2, 11.2, 56, true, "pt_f1_d1"); trk.add(d); } // pt_f1_d1
+        { Det d; d.setDisk(126.0, 9.2, 15.2, 56, true, "pt_f2_d1"); trk.add(d); } // pt_f2_d1
+        { Det d; d.setDisk(144.0, 5.4, 11.4, 56, true, "pt_f2_d2"); trk.add(d); } // pt_f2_d2
+        { Det d; d.setDisk(183.0,12.2, 20.2, 56, true, "pt_f3_d1"); trk.add(d); } // pt_f3_d1
+        { Det d; d.setDisk(189.0, 7.0, 13.0, 56, true, "pt_f3_d2"); trk.add(d); } // pt_f3_d2
+        { Det d; d.setDisk(233.0,17.6, 25.6, 56, true, "pt_f4_d1"); trk.add(d); } // pt_f4_d1
+        { Det d; d.setDisk(230.0,11.8, 17.8, 56, true, "pt_f4_d2"); trk.add(d); } // pt_f4_d2
+        { Det d; d.setDisk(238.0, 8.8, 12.8, 56, true, "pt_f4_d3"); trk.add(d); } // pt_f4_d3
+        { Det d; d.setDisk(287.0,24.0, 32.0, 56, true, "pt_f5_d1"); trk.add(d); } // pt_f5_d1
+        { Det d; d.setDisk(284.0,16.0, 24.0, 56, true, "pt_f5_d2"); trk.add(d); } // pt_f5_d2
+        { Det d; d.setDisk(288.0,10.6, 16.6, 56, true, "pt_f5_d3"); trk.add(d); } // pt_f5_d3
     }
 
 

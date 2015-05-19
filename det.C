@@ -7,7 +7,7 @@ Det::Det()
     _vec_max.SetXYZ(0, 0, 0);
 }
 
-void Det::setDisk(double z, double r_min, double r_max, int nModules, bool isVfpix)
+void Det::setDisk(double z, double r_min, double r_max, int nModules, bool isVfpix, std::string name)
 {
     _vec_min.SetXYZ(r_max, 0, z); // the larger r gives the lower eta value
     _vec_max.SetXYZ(r_min, 0, z);
@@ -15,9 +15,10 @@ void Det::setDisk(double z, double r_min, double r_max, int nModules, bool isVfp
     _isVfpix = isVfpix;
     _nModules = nModules;
     _isDisk = true;
+    _name = name;
 }
 
-void Det::setLayer(double r, double z_min, double z_max, int nModules, bool isVfpix)
+void Det::setLayer(double r, double z_min, double z_max, int nModules, bool isVfpix, std::string name)
 {
     _vec_min.SetXYZ(r, 0, z_min);
     _vec_max.SetXYZ(r, 0, z_max);
@@ -25,6 +26,7 @@ void Det::setLayer(double r, double z_min, double z_max, int nModules, bool isVf
     _isVfpix = isVfpix;
     _nModules = nModules;
     _isDisk = false;
+    _name = name;
 }
 
 void Det::calcEtaBoundaries()

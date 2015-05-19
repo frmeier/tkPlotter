@@ -98,6 +98,8 @@ void Tracker::dump() const
 	    cout << " Layer ";
 	    if (setTWiki) std::cout << " |  ";
 	}
+	std::cout << it->getName() << " ";
+	if (setTWiki) std::cout << " |  ";
 	std::cout << it->getR0() << " ";
 	if (setTWiki) std::cout << " |  ";
 	std::cout << it->getZ0() << " ";
