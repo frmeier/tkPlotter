@@ -4,6 +4,17 @@
 #include <string>
 #include "TVector3.h"
 
+// Holds basic properties of different Det parts
+struct DetProp
+{
+    double w, l; // dimensions of module in mm
+    double alpha, beta; // tilt angles, usually 0. alpha around w, beta around l
+    double thickness; // thickness in mm
+    double X0; // radiation length in g/cm2
+    double density; // density in g/cm3
+    double area() { return w*l; };
+};
+
 class Det
 {
     public:
@@ -33,6 +44,7 @@ class Det
 	bool _isDisk;
 	int _nModules;
     std::string _name;
+    DetProp _properties;
 };
 
 #endif
