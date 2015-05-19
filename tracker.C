@@ -57,7 +57,7 @@ void Tracker::draw(double z0, double r0, double z1, double r1) const // draws th
 */
 
     TLatex *tl = new TLatex;
-    tl->SetTextSize(0.02);
+    tl->SetTextSize(0.017);
     for (std::vector<Det>::const_iterator it = _detv.begin(); it != _detv.end(); it++)
     {
         TLine *l = new TLine(it->getZ0(), it->getR0(), it->getZ1(), it->getR1());
@@ -75,12 +75,14 @@ void Tracker::draw(double z0, double r0, double z1, double r1) const // draws th
         if (it->getIsDisk())
         {
             tl->SetTextAngle(90);
-            tl->DrawLatex(it->getZ0(), it->getR0(), it->getName().c_str());
+            tl->SetTextAlign(23);
+            tl->DrawLatex(it->getZ0()+3, .5*(it->getR0()+it->getR1()), it->getName().c_str());
         }
         else
         {
             tl->SetTextAngle(0);
-            tl->DrawLatex(it->getZ0(), it->getR0(), it->getName().c_str());
+            tl->SetTextAlign(21);
+            tl->DrawLatex(.5*(it->getZ0()+it->getZ1()), it->getR0()+.2, it->getName().c_str());
         }
     }
 }
