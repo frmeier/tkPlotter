@@ -27,18 +27,18 @@ struct Trackresult
 class Tracker
 {
     public:
-	Tracker() {};
-	void add(Det det);
-	Trackresult track(double eta);
-	int getSize() const { return _detv.size(); };
-	void draw(double z0, double r0, double z1, double r1) const; // draws the tracker
-	void dump() const; // dumps the tracker as text
+        Tracker() {};
+        void add(Det det);
+        Trackresult track(double eta);
+        int getSize() const { return _detv.size(); };
+        void draw(double z0, double r0, double z1, double r1) const; // draws the tracker
+        void dump() const; // dumps the tracker as text
 
-	TkVolume volBPix, volFPix, volVFPix, volBP;
-	void drawVolume(TkVolume vol, int col) const;
+        TkVolume volBPix, volFPix, volVFPix, volBP;
+        void drawVolume(TkVolume vol, int col) const;
 
     private:
-	std::vector<Det> _detv;
+        std::vector<Det> _detv;
 };
 
 #endif

@@ -25,35 +25,35 @@ struct DetProp
 class Det
 {
     public:
-	Det();
-	void setDisk(double z, double r_min, double r_max, bool isVfpix, DetProp prop, std::string name = "");
-	void setLayer(double r, double z_min, double z_max, bool isVfpix, DetProp prop, std::string name = "");
-	bool hit(double eta, double &r, double &z) const;
-	double getEtaMin() const { return _eta_min; };
-	double getEtaMax() const { return _eta_max; };
-	bool getIsVfpix() const { return _isVfpix; };
-	bool getIsDisk() const { return _isDisk; };
-	int getNModules() const { return _nModules; };
-	double getR0() const { return _vec_min.x(); };
-	double getR1() const { return _vec_max.x(); };
-	double getZ0() const { return _vec_min.z(); };
-	double getZ1() const { return _vec_max.z(); };
-    std::string getName() const { return _name; };
-    int getColor() const { return _properties.col; };
-	ClassDef(Det, 1);
+        Det();
+        void setDisk(double z, double r_min, double r_max, bool isVfpix, DetProp prop, std::string name = "");
+        void setLayer(double r, double z_min, double z_max, bool isVfpix, DetProp prop, std::string name = "");
+        bool hit(double eta, double &r, double &z) const;
+        double getEtaMin() const { return _eta_min; };
+        double getEtaMax() const { return _eta_max; };
+        bool getIsVfpix() const { return _isVfpix; };
+        bool getIsDisk() const { return _isDisk; };
+        int getNModules() const { return _nModules; };
+        double getR0() const { return _vec_min.x(); };
+        double getR1() const { return _vec_max.x(); };
+        double getZ0() const { return _vec_min.z(); };
+        double getZ1() const { return _vec_max.z(); };
+        std::string getName() const { return _name; };
+        int getColor() const { return _properties.col; };
+        ClassDef(Det, 1);
 
     private:
-	void calcEtaBoundaries(); // calculates the eta coverage of the given detector unit
+        void calcEtaBoundaries(); // calculates the eta coverage of the given detector unit
 
-	std::string _type;
-	TVector3 _vec_min, _vec_max; // min/max ordered by eta
-	double _eta_min, _eta_max;
-	bool _isVfpix;
-	bool _isDisk;
-	int _nModules;
-    std::string _name;
-    DetProp _properties;
-    double _fillfactor;
+        std::string _type;
+        TVector3 _vec_min, _vec_max; // min/max ordered by eta
+        double _eta_min, _eta_max;
+        bool _isVfpix;
+        bool _isDisk;
+        int _nModules;
+        std::string _name;
+        DetProp _properties;
+        double _fillfactor;
 };
 
 #endif

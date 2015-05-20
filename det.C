@@ -54,24 +54,24 @@ bool Det::hit(double eta, double &r, double &z) const
 
     if (eta >= _eta_min && eta <= _eta_max)
     {
-	if (_isDisk)
-	{
-	    z = _vec_min.z();
-	    const double tantheta = TMath::Tan(2*TMath::ATan(TMath::Exp(-eta)));
-	    r = z * tantheta;
-	    return true;
-	}
-	else
-	{
-	    r = _vec_min.x();
-	    if (r <= 0) return false;
-	    const double tantheta = TMath::Tan(2*TMath::ATan(TMath::Exp(-eta)));
-	    if (tantheta == 0) return false;
-	    z = r / tantheta;
-	    return true;
-	}
+        if (_isDisk)
+        {
+            z = _vec_min.z();
+            const double tantheta = TMath::Tan(2*TMath::ATan(TMath::Exp(-eta)));
+            r = z * tantheta;
+            return true;
+        }
+        else
+        {
+            r = _vec_min.x();
+            if (r <= 0) return false;
+            const double tantheta = TMath::Tan(2*TMath::ATan(TMath::Exp(-eta)));
+            if (tantheta == 0) return false;
+            z = r / tantheta;
+            return true;
+        }
     }
     else
-	return false;
+        return false;
 }
 

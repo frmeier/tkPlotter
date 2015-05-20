@@ -19,23 +19,23 @@ Trackresult Tracker::track(double eta)
     Trackresult res;
     for (std::vector<Det>::const_iterator it = _detv.begin(); it != _detv.end(); it++)
     {
-	double r,z;
-	if (it->hit(eta, r,z))
-	{
-	    res.nHits++;
-	    if (it->getIsVfpix()) res.nHits_vfpix++;
-	    if (res.nHits == 1)
-	    {
-		res.r_min = res.r_max = r;
-		res.z_min = z;
-	    }
-	    else
-	    {
-		res.r_min = ( r<res.r_min ? r : res.r_min);
-		res.r_max = ( r>res.r_max ? r : res.r_max);
-		res.z_min = ( z<res.z_min ? z : res.z_min);
-	    }
-	}
+        double r,z;
+        if (it->hit(eta, r,z))
+        {
+            res.nHits++;
+            if (it->getIsVfpix()) res.nHits_vfpix++;
+            if (res.nHits == 1)
+            {
+                res.r_min = res.r_max = r;
+                res.z_min = z;
+            }
+            else
+            {
+                res.r_min = ( r<res.r_min ? r : res.r_min);
+                res.r_max = ( r>res.r_max ? r : res.r_max);
+                res.z_min = ( z<res.z_min ? z : res.z_min);
+            }
+        }
     }
     return res;
 }
@@ -96,32 +96,32 @@ void Tracker::dump() const
     int i=0;
     for (std::vector<Det>::const_iterator it = _detv.begin(); it != _detv.end(); it++)
     {
-	if (setTWiki) std::cout << "|  ";
-	std::cout << i << " ";
-	if (it->getIsDisk())
-	{
-	    if (setTWiki) std::cout << " |";
-	    cout << " Disk ";
-	    if (setTWiki) std::cout << " |  ";
-	}
-	else
-	{
-	    if (setTWiki) std::cout << " |";
-	    cout << " Layer ";
-	    if (setTWiki) std::cout << " |  ";
-	}
-	std::cout << it->getName() << " ";
-	if (setTWiki) std::cout << " |  ";
-	std::cout << it->getR0() << " ";
-	if (setTWiki) std::cout << " |  ";
-	std::cout << it->getZ0() << " ";
-	if (setTWiki) std::cout << " |  ";
-	std::cout << it->getR1() << " ";
-	if (setTWiki) std::cout << " |  ";
-	std::cout << it->getZ1() << " ";
-	if (setTWiki) std::cout << " |  ";
-	std::cout << std::endl;
-	i++;
+        if (setTWiki) std::cout << "|  ";
+        std::cout << i << " ";
+        if (it->getIsDisk())
+        {
+            if (setTWiki) std::cout << " |";
+            cout << " Disk ";
+            if (setTWiki) std::cout << " |  ";
+        }
+        else
+        {
+            if (setTWiki) std::cout << " |";
+            cout << " Layer ";
+            if (setTWiki) std::cout << " |  ";
+        }
+        std::cout << it->getName() << " ";
+        if (setTWiki) std::cout << " |  ";
+        std::cout << it->getR0() << " ";
+        if (setTWiki) std::cout << " |  ";
+        std::cout << it->getZ0() << " ";
+        if (setTWiki) std::cout << " |  ";
+        std::cout << it->getR1() << " ";
+        if (setTWiki) std::cout << " |  ";
+        std::cout << it->getZ1() << " ";
+        if (setTWiki) std::cout << " |  ";
+        std::cout << std::endl;
+        i++;
     }
 }
 

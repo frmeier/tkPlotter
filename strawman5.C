@@ -107,15 +107,15 @@ void strawman5()
 
     for (int i = 0; i!=N; i++)
     {
-	const double eta = eta_min + i*eta_step;
-	Trackresult res = trk.track(eta);
-	//cout << "eta: " << eta << " nHits: " << res.nHits << endl;
-	h1->SetBinContent(i+1,res.nHits);
-	h2->SetBinContent(i+1,res.nHits_vfpix);
-	h3->SetBinContent(i+1,res.r_min);
-	h4->SetBinContent(i+1,res.r_max);
-	h5->SetBinContent(i+1,res.r_max-res.r_min);
-	h6->SetBinContent(i+1,res.z_min);
+        const double eta = eta_min + i*eta_step;
+        Trackresult res = trk.track(eta);
+        //cout << "eta: " << eta << " nHits: " << res.nHits << endl;
+        h1->SetBinContent(i+1,res.nHits);
+        h2->SetBinContent(i+1,res.nHits_vfpix);
+        h3->SetBinContent(i+1,res.r_min);
+        h4->SetBinContent(i+1,res.r_max);
+        h5->SetBinContent(i+1,res.r_max-res.r_min);
+        h6->SetBinContent(i+1,res.z_min);
     }
     TCanvas *c = new TCanvas("c","c", 500, 500);
     trk.draw(0, 0, 300, 50); c->SaveAs("tracker.pdf"); c->SaveAs("tracker.png");
