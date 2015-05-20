@@ -72,7 +72,7 @@ bool Det::hit(double eta, double &r, double &z, double &dX0, double &dNIL) const
             if (r <= 0) return false;
             if (tantheta == 0) return false;
             z = r / tantheta;
-            const double tanPihalvMinTheta = TMath::Tan(0.5*TMath::Pi()-2*TMath::ATan(TMath::Exp(-eta)));
+            const double tanPihalvMinTheta = TMath::Tan(0.5*TMath::Pi()-2*TMath::ATan(TMath::Exp(-eta) + _properties.alpha));
             const double tanPihalvMinTheta2 = TMath::Sqrt(1+tanPihalvMinTheta*tanPihalvMinTheta);
             dX0  = _properties.xOverX0()  * tanPihalvMinTheta2 * _fillfactor;
             dNIL = _properties.xOverNIL() * tanPihalvMinTheta2 * _fillfactor;

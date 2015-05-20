@@ -2,6 +2,7 @@
 
 #include "TCanvas.h"
 #include "TH1D.h"
+#include "TMath.h"
 
 #include "det.h"
 #include "tracker.h"
@@ -46,9 +47,11 @@ void strawman5()
     modBarrelPt.description = "Module for barrel optimized for momentum";
     modBarrelPt.pxW = 15*0.001; modBarrelPt.pxL = 500*0.001;
     modBarrelPt.col = ptCol;
+    modBarrelPt.alpha = 5.0/180*TMath::Pi();
 
     // Endcap discs, VFPix-style. Come in 3 sizes.
     DetProp modDiscPt80 = modBarrelPt;
+    modDiscPt80.alpha = 0;
     modDiscPt80.name = "modDiscPt80";
     modDiscPt80.description = "Module for disc optimized for momentum, full size";
     DetProp modDiscPt60 = modDiscPt80;
