@@ -20,7 +20,9 @@ Trackresult Tracker::track(double eta)
     for (std::vector<Det>::const_iterator it = _detv.begin(); it != _detv.end(); it++)
     {
         double r,z;
-        if (it->hit(eta, r,z))
+        double dX0, dNIL;
+        // Check if we hit that layer/disc
+        if (it->hit(eta, r,z, dX0, dNIL))
         {
             res.nHits++;
             if (it->getIsVfpix()) res.nHits_vfpix++;
@@ -35,6 +37,8 @@ Trackresult Tracker::track(double eta)
                 res.r_max = ( r>res.r_max ? r : res.r_max);
                 res.z_min = ( z<res.z_min ? z : res.z_min);
             }
+            res.X0cum += dX0;
+            res.NILcum += dNIL;
         }
     }
     return res;

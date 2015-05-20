@@ -17,11 +17,12 @@ struct TkVolume
 
 struct Trackresult
 {
-    Trackresult() : nHits(0), nHits_vfpix(0), r_min(0), r_max(0), z_min(0) {};
+    Trackresult() : nHits(0), nHits_vfpix(0), r_min(0), r_max(0), z_min(0), X0cum(0), NILcum(0) {};
     int nHits;
     int nHits_vfpix;
     double r_min, r_max;
     double z_min;
+    double X0cum, NILcum;
 };
 
 class Tracker

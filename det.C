@@ -1,3 +1,4 @@
+#include <iostream>
 #include "TMath.h"
 #include "det.h"
 
@@ -47,27 +48,34 @@ void Det::calcEtaBoundaries()
     _eta_max = _vec_max.Eta();
 }
 
-bool Det::hit(double eta, double &r, double &z) const
+bool Det::hit(double eta, double &r, double &z, double &dX0, double &dNIL) const
 {
     r = 0;
     z = 0;
+    dX0 = 0;
+    dNIL = 0;
 
     if (eta >= _eta_min && eta <= _eta_max)
     {
+        const double tantheta = TMath::Tan(2*TMath::ATan(TMath::Exp(-eta)));
         if (_isDisk)
         {
             z = _vec_min.z();
-            const double tantheta = TMath::Tan(2*TMath::ATan(TMath::Exp(-eta)));
             r = z * tantheta;
+            dX0 = _properties.xOverX0() * TMath::Sqrt(1+tantheta*tantheta) * _fillfactor;
+            dNIL = _properties.xOverNIL() * TMath::Sqrt(1+tantheta*tantheta) * _fillfactor;
             return true;
         }
         else
         {
             r = _vec_min.x();
             if (r <= 0) return false;
-            const double tantheta = TMath::Tan(2*TMath::ATan(TMath::Exp(-eta)));
             if (tantheta == 0) return false;
             z = r / tantheta;
+            const double tanPihalvMinTheta = TMath::Tan(0.5*TMath::Pi()-2*TMath::ATan(TMath::Exp(-eta)));
+            const double tanPihalvMinTheta2 = TMath::Sqrt(1+tanPihalvMinTheta*tanPihalvMinTheta);
+            dX0  = _properties.xOverX0()  * tanPihalvMinTheta2 * _fillfactor;
+            dNIL = _properties.xOverNIL() * tanPihalvMinTheta2 * _fillfactor;
             return true;
         }
     }

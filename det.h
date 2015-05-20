@@ -17,9 +17,9 @@ struct DetProp
     double NIL; // nuclear interaction length in g/cm2
     double density; // density in g/cm3
     int col; // color to be used to draw object
-    double area() { return w*l; };
-    double xOverX0() { return thickness*density/X0*0.1; }; // 0.1 cm/mm
-    double xOverNIL() { return thickness*density/NIL*0.1; }; // 0.1 cm/mm
+    double area() const { return w*l; };
+    double xOverX0() const { return thickness*density/X0*0.1; }; // 0.1 cm/mm
+    double xOverNIL() const { return thickness*density/NIL*0.1; }; // 0.1 cm/mm
 };
 
 class Det
@@ -28,7 +28,7 @@ class Det
         Det();
         void setDisk(double z, double r_min, double r_max, bool isVfpix, DetProp prop, std::string name = "");
         void setLayer(double r, double z_min, double z_max, bool isVfpix, DetProp prop, std::string name = "");
-        bool hit(double eta, double &r, double &z) const;
+        bool hit(double eta, double &r, double &z, double &dX0, double &dNIL) const;
         double getEtaMin() const { return _eta_min; };
         double getEtaMax() const { return _eta_max; };
         bool getIsVfpix() const { return _isVfpix; };

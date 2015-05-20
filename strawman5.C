@@ -104,6 +104,8 @@ void strawman5()
     TH1D *h4 = new TH1D("h4", "all pixels;#eta;r_{max} [cm]", N, eta_min, eta_max);
     TH1D *h5 = new TH1D("h5", "all pixels;#eta;r_{max}-r_{min} [cm]", N, eta_min, eta_max);
     TH1D *h6 = new TH1D("h6", "all pixels;#eta;z_{min} [cm]", N, eta_min, eta_max);
+    TH1D *hX0 = new TH1D("hX0", "Radiation length, all pixels;#eta;x/X_{0} [1]", N, eta_min, eta_max);
+    TH1D *hNIL = new TH1D("hX0", "Nuclear interaction length, all pixels;#eta;x/X_{0} [1]", N, eta_min, eta_max);
 
     for (int i = 0; i!=N; i++)
     {
@@ -116,6 +118,8 @@ void strawman5()
         h4->SetBinContent(i+1,res.r_max);
         h5->SetBinContent(i+1,res.r_max-res.r_min);
         h6->SetBinContent(i+1,res.z_min);
+        hX0->SetBinContent(i+1,res.X0cum);
+        hNIL->SetBinContent(i+1,res.NILcum);
     }
     TCanvas *c = new TCanvas("c","c", 500, 500);
     trk.draw(0, 0, 300, 50); c->SaveAs("tracker.pdf"); c->SaveAs("tracker.png");
@@ -125,6 +129,8 @@ void strawman5()
     h4->Draw(); c->SaveAs("h4.pdf"); c->SaveAs("h4.png");
     h5->Draw(); c->SaveAs("h5.pdf"); c->SaveAs("h5.png");
     h6->Draw(); c->SaveAs("h6.pdf"); c->SaveAs("h6.png");
+    hX0->Draw(); c->SaveAs("hX0.pdf"); c->SaveAs("hX0.png");
+    hNIL->Draw(); c->SaveAs("hNIL.pdf"); c->SaveAs("hNIL.png");
     trk.dump();
 }
 
