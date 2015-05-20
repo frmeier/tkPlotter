@@ -11,11 +11,15 @@ struct DetProp
     std::string description; // Longer description, for nice reporting
     double w, l; // dimensions of module in mm
     double alpha, beta; // tilt angles, usually 0. alpha around w, beta around l
+    double pxW, pxL; // dimensions of pixel in mm
     double thickness; // thickness in mm
     double X0; // radiation length in g/cm2
+    double NIL; // nuclear interaction length in g/cm2
     double density; // density in g/cm3
     int col; // color to be used to draw object
     double area() { return w*l; };
+    double xOverX0() { return thickness*density/X0*0.1; }; // 0.1 cm/mm
+    double xOverNIL() { return thickness*density/NIL*0.1; }; // 0.1 cm/mm
 };
 
 class Det
