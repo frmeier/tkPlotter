@@ -21,7 +21,7 @@ void strawman5()
     DetProp modBarrelVtx;
     modBarrelVtx.name = "modBarrelVtx";
     modBarrelVtx.description = "Module for barrel optimized for vertexing";
-    modBarrelVtx.w = 38.4; modBarrelVtx.l = 80.0;
+    modBarrelVtx.w = 3.84; modBarrelVtx.l = 8.0;
     modBarrelVtx.alpha = 0; modBarrelVtx.beta = 0;
     modBarrelVtx.pxW = 75*0.001; modBarrelVtx.pxL = 100*0.001;
     modBarrelVtx.thickness = 0.400;
@@ -29,13 +29,14 @@ void strawman5()
     modBarrelVtx.NIL = 108.4; // Si
     modBarrelVtx.density = 2.329; // Si
     modBarrelVtx.col = vtxCol;
+    std::cout << modBarrelVtx.xOverX0() << std::endl;
 
     // Disc for vertexing (traditional FPix-like discs), come in two sizes
     DetProp modDiscVtx80 = modBarrelVtx;
     modDiscVtx80.name = "modDiscVtx80";
     modDiscVtx80.description = "Module for disc optimized for vertexing, full size";
     DetProp modDiscVtx60 = modDiscVtx80;
-    modDiscVtx60.l = 60;
+    modDiscVtx60.l = 6.0;
     modDiscVtx60.description = "Module for disc optimized for vertexing, 3/4 size";
 
     // Now modules for pt, having different pixel shapes
@@ -52,10 +53,10 @@ void strawman5()
     modDiscPt80.description = "Module for disc optimized for momentum, full size";
     DetProp modDiscPt60 = modDiscPt80;
     modDiscPt60.description = "Module for disc optimized for momentum, 3/4 size";
-    modDiscPt60.l = 60;
+    modDiscPt60.l = 6.0;
     DetProp modDiscPt40 = modDiscPt80;
     modDiscPt40.description = "Module for disc optimized for momentum, 1/2 size";
-    modDiscPt40.l = 40;
+    modDiscPt40.l = 4.0;
 
 
     {
@@ -105,7 +106,7 @@ void strawman5()
     TH1D *h5 = new TH1D("h5", "all pixels;#eta;r_{max}-r_{min} [cm]", N, eta_min, eta_max);
     TH1D *h6 = new TH1D("h6", "all pixels;#eta;z_{min} [cm]", N, eta_min, eta_max);
     TH1D *hX0 = new TH1D("hX0", "Radiation length, all pixels;#eta;x/X_{0} [1]", N, eta_min, eta_max);
-    TH1D *hNIL = new TH1D("hX0", "Nuclear interaction length, all pixels;#eta;x/X_{0} [1]", N, eta_min, eta_max);
+    TH1D *hNIL = new TH1D("hNIL", "Nuclear interaction length, all pixels;#eta;x/X_{0} [1]", N, eta_min, eta_max);
 
     for (int i = 0; i!=N; i++)
     {

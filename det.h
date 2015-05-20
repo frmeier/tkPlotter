@@ -9,7 +9,7 @@ struct DetProp
 {
     std::string name; // Identifies the type, short mnemonic style
     std::string description; // Longer description, for nice reporting
-    double w, l; // dimensions of module in mm
+    double w, l; // dimensions of module in cm
     double alpha, beta; // tilt angles, usually 0. alpha around w, beta around l
     double pxW, pxL; // dimensions of pixel in mm
     double thickness; // thickness in mm

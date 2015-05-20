@@ -39,7 +39,7 @@ void Det::setLayer(double r, double z_min, double z_max, bool isVfpix, DetProp p
     // Calculate angle covered by one module, needed for estimating fill factor. Assumes r is closest point of a face
     const double anglePerModule = 2 * TMath::ATan(_properties.w / (2 * r) ); 
     // Fill factor > 1 means overlap, and also more material
-    _fillfactor = anglePerModule / (TMath::Pi() / nFaces);
+    _fillfactor = anglePerModule / (2 * TMath::Pi() / nFaces);
 }
 
 void Det::calcEtaBoundaries()
