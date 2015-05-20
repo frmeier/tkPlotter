@@ -9,6 +9,7 @@ struct DetProp
 {
     std::string name; // Identifies the type, short mnemonic style
     std::string description; // Longer description, for nice reporting
+    bool isSensor; // true: can have hits; false: use for dead material
     double w, l; // dimensions of module in cm
     double alpha, beta; // tilt angles, usually 0. alpha around w, beta around l
     double pxW, pxL; // dimensions of pixel in mm
@@ -33,6 +34,7 @@ class Det
         double getEtaMax() const { return _eta_max; };
         bool getIsVfpix() const { return _isVfpix; };
         bool getIsDisk() const { return _isDisk; };
+        bool getIsSensor() const { return _properties.isSensor; };
         int getNModules() const { return _nModules; };
         double getR0() const { return _vec_min.x(); };
         double getR1() const { return _vec_max.x(); };

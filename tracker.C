@@ -24,19 +24,24 @@ Trackresult Tracker::track(double eta)
         // Check if we hit that layer/disc
         if (it->hit(eta, r,z, dX0, dNIL))
         {
-            res.nHits++;
-            if (it->getIsVfpix()) res.nHits_vfpix++;
-            if (res.nHits == 1)
+            // Hit counting only for sensors, not for dead material ;)
+            if (it->getIsSensor())
             {
-                res.r_min = res.r_max = r;
-                res.z_min = z;
+                res.nHits++;
+                if (it->getIsVfpix()) res.nHits_vfpix++;
+                if (res.nHits == 1)
+                {
+                    res.r_min = res.r_max = r;
+                    res.z_min = z;
+                }
+                else
+                {
+                    res.r_min = ( r<res.r_min ? r : res.r_min);
+                    res.r_max = ( r>res.r_max ? r : res.r_max);
+                    res.z_min = ( z<res.z_min ? z : res.z_min);
+                }
             }
-            else
-            {
-                res.r_min = ( r<res.r_min ? r : res.r_min);
-                res.r_max = ( r>res.r_max ? r : res.r_max);
-                res.z_min = ( z<res.z_min ? z : res.z_min);
-            }
+            // Material counting for sensors and dead material
             res.X0cum += dX0;
             res.NILcum += dNIL;
         }

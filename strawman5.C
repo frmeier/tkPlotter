@@ -22,6 +22,7 @@ void strawman5()
     DetProp modBarrelVtx;
     modBarrelVtx.name = "modBarrelVtx";
     modBarrelVtx.description = "Module for barrel optimized for vertexing";
+    modBarrelVtx.isSensor = false;
     modBarrelVtx.w = 3.84; modBarrelVtx.l = 8.0;
     modBarrelVtx.alpha = 0; modBarrelVtx.beta = 0;
     modBarrelVtx.pxW = 75*0.001; modBarrelVtx.pxL = 100*0.001;
@@ -47,7 +48,7 @@ void strawman5()
     modBarrelPt.description = "Module for barrel optimized for momentum";
     modBarrelPt.pxW = 15*0.001; modBarrelPt.pxL = 500*0.001;
     modBarrelPt.col = ptCol;
-    modBarrelPt.alpha = 5.0/180*TMath::Pi();
+    modBarrelPt.alpha = 3.0/180*TMath::Pi();
 
     // Endcap discs, VFPix-style. Come in 3 sizes.
     DetProp modDiscPt80 = modBarrelPt;
