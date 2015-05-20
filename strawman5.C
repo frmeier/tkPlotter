@@ -25,17 +25,28 @@ void strawman5()
     modBarrelVtx.alpha = 0; modBarrelVtx.beta = 0;
     modBarrelVtx.pxW = 75*0.001; modBarrelVtx.pxL = 100*0.001;
     modBarrelVtx.thickness = 0.400;
-    modBarrelVtx.X0 = 21.82;
-    modBarrelVtx.NIL = 108.4;
-    modBarrelVtx.density = 2.329;
+    modBarrelVtx.X0 = 21.82; // Si
+    modBarrelVtx.NIL = 108.4; // Si
+    modBarrelVtx.density = 2.329; // Si
     modBarrelVtx.col = vtxCol;
 
+    // Disc for vertexing (traditional FPix-like discs), come in two sizes
+    DetProp modDiscVtx80 = modBarrelVtx;
+    modDiscVtx80.name = "modDiscVtx80";
+    modDiscVtx80.description = "Module for disc optimized for vertexing, full size";
+    DetProp modDiscVtx60 = modDiscVtx80;
+    modDiscVtx60.l = 60;
+    modDiscVtx60.description = "Module for disc optimized for vertexing, 3/4 size";
+
+    // Now modules for pt, having different pixel shapes
+    // Barrel modules for the pt-extension ("long barrel")
     DetProp modBarrelPt = modBarrelVtx;
     modBarrelPt.name = "modBarrelPt";
     modBarrelPt.description = "Module for barrel optimized for momentum";
     modBarrelPt.pxW = 15*0.001; modBarrelPt.pxL = 500*0.001;
     modBarrelPt.col = ptCol;
 
+    // Endcap discs, VFPix-style. Come in 3 sizes.
     DetProp modDiscPt80 = modBarrelPt;
     modDiscPt80.name = "modDiscPt80";
     modDiscPt80.description = "Module for disc optimized for momentum, full size";
@@ -49,33 +60,33 @@ void strawman5()
 
     {
         // BPix
-        { Det d; d.setLayer(  3.0,  0.0, 32.0, 0, false, "vtx_b1"); trk.add(d); } // vtx_b1
-        { Det d; d.setLayer(  6.8,  0.0, 32.0, 0, false, "vtx_b2"); trk.add(d); } // vtx_b2
-        { Det d; d.setLayer( 11.8,  0.0, 32.0, 0, false, "vtx_b3"); trk.add(d); } // vtx_b3
-        { Det d; d.setLayer( 18.8,  0.0, 32.0, 0, false, "vtx_b4"); trk.add(d); } // vtx_b4
+        { Det d; d.setLayer(  3.0,  0.0, 32.0, false, modBarrelVtx, "vtx_b1"); trk.add(d); } // vtx_b1
+        { Det d; d.setLayer(  6.8,  0.0, 32.0, false, modBarrelVtx, "vtx_b2"); trk.add(d); } // vtx_b2
+        { Det d; d.setLayer( 11.8,  0.0, 32.0, false, modBarrelVtx, "vtx_b3"); trk.add(d); } // vtx_b3
+        { Det d; d.setLayer( 18.8,  0.0, 32.0, false, modBarrelVtx, "vtx_b4"); trk.add(d); } // vtx_b4
 
         // FPix
-        { Det d; d.setDisk( 34.0, 12.0, 20.0, 56, false, "vtx_f1_d1"); trk.add(d); } // vtx_f1_d1
-        { Det d; d.setDisk( 37.0,  6.8, 12.8, 56, false, "vtx_f1_d2"); trk.add(d); } // vtx_f1_d2
-        { Det d; d.setDisk( 54.0, 12.0, 20.0, 56, false, "vtx_f2_d1"); trk.add(d); } // vtx_f2_d1
-        { Det d; d.setDisk( 69.0,  7.6, 15.6, 56, false, "vtx_f2_d2"); trk.add(d); } // vtx_f2_d2
-        { Det d; d.setDisk( 92.0, 12.0, 20.0, 56, false, "vtx_f3_d1"); trk.add(d); } // vtx_f3_d1
-        { Det d; d.setDisk(109.0, 12.0, 20.0, 56, false, "vtx_f4_d1"); trk.add(d); } // vtx_f4_d1
-        { Det d; d.setDisk(145.0, 16.0, 20.0, 56, true, "vtx_f5_d1"); trk.add(d); } // vtx_f5_d1
+        { Det d; d.setDisk( 34.0, 12.0, 20.0, false, modDiscVtx80, "vtx_f1_d1"); trk.add(d); } // vtx_f1_d1
+        { Det d; d.setDisk( 37.0,  6.8, 12.8, false, modDiscVtx60, "vtx_f1_d2"); trk.add(d); } // vtx_f1_d2
+        { Det d; d.setDisk( 54.0, 12.0, 20.0, false, modDiscVtx80, "vtx_f2_d1"); trk.add(d); } // vtx_f2_d1
+        { Det d; d.setDisk( 69.0,  7.6, 15.6, false, modDiscVtx80, "vtx_f2_d2"); trk.add(d); } // vtx_f2_d2
+        { Det d; d.setDisk( 92.0, 12.0, 20.0, false, modDiscVtx80, "vtx_f3_d1"); trk.add(d); } // vtx_f3_d1
+        { Det d; d.setDisk(109.0, 12.0, 20.0, false, modDiscVtx80, "vtx_f4_d1"); trk.add(d); } // vtx_f4_d1
+        { Det d; d.setDisk(145.0, 16.0, 20.0, true, modDiscPt40, "pt_f2_d3"); trk.add(d); } // pt_f2_d3 (old drawing: vtx_f5_d1)
 
         // VFPix
-        { Det d; d.setLayer(  3.0, 32.0, 72.0, 0, true, "pt_b1"); trk.add(d); } // pt_b1
-        { Det d; d.setDisk( 88.0, 3.2, 11.2, 56, true, "pt_f1_d1"); trk.add(d); } // pt_f1_d1
-        { Det d; d.setDisk(126.0, 9.2, 15.2, 56, true, "pt_f2_d1"); trk.add(d); } // pt_f2_d1
-        { Det d; d.setDisk(144.0, 5.4, 11.4, 56, true, "pt_f2_d2"); trk.add(d); } // pt_f2_d2
-        { Det d; d.setDisk(183.0,12.2, 20.2, 56, true, "pt_f3_d1"); trk.add(d); } // pt_f3_d1
-        { Det d; d.setDisk(189.0, 7.0, 13.0, 56, true, "pt_f3_d2"); trk.add(d); } // pt_f3_d2
-        { Det d; d.setDisk(233.0,17.6, 25.6, 56, true, "pt_f4_d1"); trk.add(d); } // pt_f4_d1
-        { Det d; d.setDisk(230.0,11.8, 17.8, 56, true, "pt_f4_d2"); trk.add(d); } // pt_f4_d2
-        { Det d; d.setDisk(238.0, 8.8, 12.8, 56, true, "pt_f4_d3"); trk.add(d); } // pt_f4_d3
-        { Det d; d.setDisk(287.0,24.0, 32.0, 56, true, "pt_f5_d1"); trk.add(d); } // pt_f5_d1
-        { Det d; d.setDisk(284.0,16.0, 24.0, 56, true, "pt_f5_d2"); trk.add(d); } // pt_f5_d2
-        { Det d; d.setDisk(288.0,10.6, 16.6, 56, true, "pt_f5_d3"); trk.add(d); } // pt_f5_d3
+        { Det d; d.setLayer(  3.0, 32.0, 72.0, true, modBarrelPt, "pt_b1"); trk.add(d); } // pt_b1
+        { Det d; d.setDisk( 88.0, 3.2, 11.2, true, modDiscPt80, "pt_f1_d1"); trk.add(d); } // pt_f1_d1
+        { Det d; d.setDisk(126.0, 9.2, 15.2, true, modDiscPt60, "pt_f2_d1"); trk.add(d); } // pt_f2_d1
+        { Det d; d.setDisk(144.0, 5.4, 11.4, true, modDiscPt60, "pt_f2_d2"); trk.add(d); } // pt_f2_d2
+        { Det d; d.setDisk(183.0,12.2, 20.2, true, modDiscPt80, "pt_f3_d1"); trk.add(d); } // pt_f3_d1
+        { Det d; d.setDisk(189.0, 7.0, 13.0, true, modDiscPt60, "pt_f3_d2"); trk.add(d); } // pt_f3_d2
+        { Det d; d.setDisk(233.0,17.6, 25.6, true, modDiscPt80, "pt_f4_d1"); trk.add(d); } // pt_f4_d1
+        { Det d; d.setDisk(230.0,11.8, 17.8, true, modDiscPt60, "pt_f4_d2"); trk.add(d); } // pt_f4_d2
+        { Det d; d.setDisk(238.0, 8.8, 12.8, true, modDiscPt40, "pt_f4_d3"); trk.add(d); } // pt_f4_d3
+        { Det d; d.setDisk(287.0,24.0, 32.0, true, modDiscPt80, "pt_f5_d1"); trk.add(d); } // pt_f5_d1
+        { Det d; d.setDisk(284.0,16.0, 24.0, true, modDiscPt80, "pt_f5_d2"); trk.add(d); } // pt_f5_d2
+        { Det d; d.setDisk(288.0,10.6, 16.6, true, modDiscPt60, "pt_f5_d3"); trk.add(d); } // pt_f5_d3
     }
 
 

@@ -42,9 +42,6 @@ Trackresult Tracker::track(double eta)
 
 void Tracker::draw(double z0, double r0, double z1, double r1) const // draws the tracker
 {
-    const int vtxCol(8);
-    const int ptCol(50);
-    
     TH1F *h = new TH1F("tracker","Layout of tracker;z [cm];r [cm]", 1, z0, z1);
     h->SetMinimum(r0);
     h->SetMaximum(r1);
@@ -63,16 +60,8 @@ void Tracker::draw(double z0, double r0, double z1, double r1) const // draws th
     for (std::vector<Det>::const_iterator it = _detv.begin(); it != _detv.end(); it++)
     {
         TLine *l = new TLine(it->getZ0(), it->getR0(), it->getZ1(), it->getR1());
-        if(it->getIsVfpix())
-        {
-            l->SetLineColor(ptCol);
-            tl->SetTextColor(ptCol);
-        }
-        else
-        {
-            l->SetLineColor(vtxCol);
-            tl->SetTextColor(vtxCol);
-        }
+        l->SetLineColor(it->getColor());
+        tl->SetTextColor(it->getColor());
         l->Draw();
         if (it->getIsDisk())
         {
