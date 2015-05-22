@@ -22,7 +22,7 @@ void strawman5()
     DetProp modBarrelVtx;
     modBarrelVtx.name = "modBarrelVtx";
     modBarrelVtx.description = "Module for barrel optimized for vertexing";
-    modBarrelVtx.isSensor = false;
+    modBarrelVtx.isSensor = true;
     modBarrelVtx.w = 3.84; modBarrelVtx.l = 8.0;
     modBarrelVtx.alpha = 0; modBarrelVtx.beta = 0;
     modBarrelVtx.pxW = 75*0.001; modBarrelVtx.pxL = 100*0.001;
@@ -31,7 +31,6 @@ void strawman5()
     modBarrelVtx.NIL = 108.4; // Si
     modBarrelVtx.density = 2.329; // Si
     modBarrelVtx.col = vtxCol;
-    std::cout << modBarrelVtx.xOverX0() << std::endl;
 
     // Disc for vertexing (traditional FPix-like discs), come in two sizes
     DetProp modDiscVtx80 = modBarrelVtx;
@@ -62,6 +61,17 @@ void strawman5()
     modDiscPt40.description = "Module for disc optimized for momentum, 1/2 size";
     modDiscPt40.l = 4.0;
 
+    DetProp matBeampipe;
+    matBeampipe.name = "matBeampipe";
+    matBeampipe.description = "Beampipe";
+    matBeampipe.isSensor = false;
+    matBeampipe.w = 1000; matBeampipe.l = 1000;
+    matBeampipe.alpha = 0; matBeampipe.beta = 0;
+    matBeampipe.thickness = 1;
+    matBeampipe.X0 = 65.19; // Be
+    matBeampipe.NIL = 77.8; // Be
+    matBeampipe.density = 1.848; // Be
+    matBeampipe.col = 16;
 
     {
         // BPix
@@ -92,6 +102,10 @@ void strawman5()
         { Det d; d.setDisk(287.0,24.0, 32.0, true, modDiscPt80, "pt_f5_d1"); trk.add(d); } // pt_f5_d1
         { Det d; d.setDisk(284.0,16.0, 24.0, true, modDiscPt80, "pt_f5_d2"); trk.add(d); } // pt_f5_d2
         { Det d; d.setDisk(288.0,10.6, 16.6, true, modDiscPt60, "pt_f5_d3"); trk.add(d); } // pt_f5_d3
+
+        // Dead material
+        // Beampipe
+        { Det d; d.setLayer(  2.2, 0.0, 154.0, true, matBeampipe, "bp_1"); trk.add(d); } 
     }
 
 
